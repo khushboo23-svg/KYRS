@@ -1,7 +1,28 @@
 {
-  "dependencies": {
+  "dependencies": { 
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^6.7.0"
-  }
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.1"
+  },
+  "scripts": {
+    "start": "nodemon ./src/app.js"
+  },
+  "name": "kyrs",
+  "description": "Pre requisites for running it:\r MongoDB configured at port 27017 of localhost\r Node\r dependencies in index:\r mongoose\r body-parser\r express",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdBharat14/KYRS.git"
+  },
+  "author": "Bharat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdBharat14/KYRS/issues"
+  },
+  "homepage": "https://github.com/AdBharat14/KYRS#readme"
 }
