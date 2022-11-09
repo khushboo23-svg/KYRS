@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcrypt");
-const { JsonWebTokenError } = require("jsonwebtoken");
 const jwt = require("jsonwebtoken")
 
 const userSchema = mongoose.Schema({
@@ -35,10 +34,6 @@ const userSchema = mongoose.Schema({
     itemRented:{
         type:Array,
         required:true
-    },
-    tokens:{
-        type:Array,
-        required:true
     }
 })
 
@@ -53,9 +48,8 @@ userSchema.pre('save',async function(next){
 
 userSchema.methods.generateAuth = async function(){
     try {
-        const token = jwt.sign({_id: this.id}, process.env.SECRET_KEY)
-        this.tokens = this.tokens.concat({token:token})
-        await this.save()
+        const token = jwt.sign({_id: this._id}, process.env.SECRET_KEY)
+        userSchema.updateOne({_id:this._id} )
         return token
     } catch (error) {
         console.log(error)

@@ -3,12 +3,13 @@ const sourcePath = require("../paths/source")
 const { signup, login, logout } = require("../handlers/userController")
 const {addShop, addProduct} = require("../handlers/appController")
 const rootRoute = express.Router()
-const {auth} = require("../middlewares/auth")
+const {auth, checkIfLoggedIn} = require("../middlewares/auth")
+const userModel = require("../models/users")
 rootRoute.get("/",(req,res)=>{
     res.render(sourcePath()+'/views/index',{title:'Fill Form',password:'',email:''});
 })
 
-rootRoute.get("/login", (req,res)=>{
+rootRoute.get("/login",  checkIfLoggedIn, (req,res)=>{
     dir = sourcePath();
     res.render(dir+"/views/login")
 })
