@@ -25,11 +25,10 @@ const signup = async (req, res)=>{
             shop:{},
             bought:[],
             itemForRent:[],
-            itemRented:[],
-            tokens:[]
+            itemRented:[]
         })
         user.save()
-        res.status(201).json({user : user})
+        res.redirect("/login")
     } catch (error) {
         console.log(error)
         res.status(501).json({message:"something went wrong"})
@@ -54,9 +53,10 @@ const login = async (req, res)=>{
         if(!matchPassword){
             return res.status(400).json({message: "Invalid Credentials"})
         }
-        const token = existingUser.generateAuth();
+        const token = jwt.sign({_id: existingUser._id}, process.env.SECRET_KEY)
+        console.log("hi")
+        console.log(token)
         res.cookie("jwt",token,{
-            expires: new Date(Date.now()+3000),
             httpOnly:true
         })
         res.redirect("/userDashboard")
@@ -66,10 +66,9 @@ const login = async (req, res)=>{
 }
 
 const logout = function(req, res, next){
-    let userTokens = userModel.findOne({_id:req.userId}).tokens
-    const index = userTokens.indexOf(req.cookies.jwt)
-    const tokens = userTokens.tokens.slice(index,1)
-    userModel.updateOne({_id:req.userId},{$set: {tokens:tokens}})
+    res.cookie("jwt",undefined,{
+        httpOnly:true
+    })
     res.render(sourcePath()+"/views/index")
 }
 
