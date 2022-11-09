@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="http://fonts.cdnfonts.com/css/forum" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css">
+    <title>Smit-E-Shop</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .font{
+            font-family: 'Forum', sans-serif;                                         
+        }
+        .cards{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        *{
+    /* margin: 0;
+    padding: 0;
+    box-sizing: border-box; */
+}
+
+body {
+    /* background-color: #111; */
+}
+
+.stars{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+    /* height: 10vh; */
+}
+
+.stars__star-icon{
+    stroke:#EFCE4A;
+    stroke-width: 2px;
+    fill: transparent;
+    transition: .1s all;
+}
+
+.stars__star{
+    width: 5%;
+    height: 5%;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.stars__checkbox{
+    /* position: absolute; */
+    top: -9999px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.stars__star:hover > .stars__star-icon{
+    fill: #EFCE4A;
+}
+
+.stars__star:hover ~ .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+
+.stars__checkbox:checked + .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+
+.stars__checkbox:checked ~ .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+        
+    </style>
+    <script>
+        var myCarousel = document.querySelector('#myCarousel')
+var carousel = new bootstrap.Carousel(myCarousel, {
+  interval: 2000,
+  wrap: false
+})
+    </script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container container">
+          <input type="checkbox" name="" id="" />
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="showShop">Shops</a></li>
+            <li><a href="about">About</a></li>
+            <button><a href="#">Contact</a></button>
+          </ul>
+          <h1 class="logo">SMIT-E-SHOP</h1>
+        </div>
+    </nav>
+
+
+
+    <!-- <%
+        shops.forEach((shop)=>{%>
+            <tr>
+                <td><%-shop._id%></td>
+                <td><%-shop.name%></td>
+                <td><%-shop.email%></td>
+                <td>
+                    <a href="#">view</a>
+                    <a href="#">delete</a>
+                </td>
+            </tr>
+       <% })%> -->
+
+
+       <%
+        shops.forEach((shop)=>{%>
+            <div class="container text-center">
+                <!-- <h1 class="text-center mt-2">Search for shop</h1> -->
+                <div class="row mt-5  text-light justify-content-center aligh-item-center">
+
+                    
+                    <div class="col-md-10 bg-dark p-4 cards m-2" style="border-radius: 10px;">
+                        <p class="display-6 text-capitalize text-primary"><%-shop.shopname%></p>
+                        <p><%-shop.address%> , <%-shop.city%></p>
+                        <div class="stars">
+                            <input class="stars__checkbox" type="radio" id="first-star" name="star">
+                            <label class="stars__star" for="first-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                            <input class="stars__checkbox" type="radio" id="second-star" name="star">
+                            <label class="stars__star" for="second-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                            <input class="stars__checkbox" type="radio" id="third-star" name="star">
+                            <label class="stars__star" for="third-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                            <input class="stars__checkbox" type="radio" id="fourth-star" name="star">
+                            <label class="stars__star" for="fourth-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                            <input class="stars__checkbox" type="radio" id="fifth-star" name="star">
+                            <label class="stars__star" for="fifth-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                        </div>
+                        
+                        <!-- <a href="particularShop"><button class="btn btn-secondary mt-3">Visit Shop</button></a> -->
+                        <a href="/particularShop/<%= shop._id %>">visit shop</a>
+                    </div>
+        
+                    
+                </div>
+            </div>
+        
+       <% })%>
+
+
+
+
+    
+    
+       <div id="footer" class=" bg-dark text-light p-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="font-size: 15px;">@copyright smiteshop.com</div>
+            </div>
+        </div>
+    </div>
+
+
+
+                  
+
+</body>
+</html>

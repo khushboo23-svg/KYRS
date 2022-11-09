@@ -1,31 +1,26 @@
 const express = require("express")
-const mongoose = require("mongoose")
 const path = require("path")
+const dotenv = require("dotenv")
+const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
+
+const projectPath = require("./paths/project")
+
+dotenv.config({path: path.join(projectPath(),"config.env")})
+
 const sourcePath = require("./paths/source")
 
-const userRouter = require("./routes/userRoutes")
+require(sourcePath()+"/database/connection")
+
 
 const app = express()
+const port = process.env.PORT
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(cookieParser())
+app.set('view engine','ejs');
 
-const port = process.env.PORT || 3000
-
-
-app.use(express.json())
-dir = sourcePath()
-console.log(dir)
-app.use(express.static(path.join(dir, 'stylesheets')))
-app.use("/user", userRouter)
-
-app.get("/",(req, res)=>{
-    res.send("Hello")
-})
-mongoose.connect("mongodb+srv://alpha:alpha@cluster0.svlsxcs.mongodb.net/?retryWrites=true&w=majority", (err)=>{
-    if(err)
-        console.log(err)
-    else{
-        console.log("connected")
-    }
-})
+app.use(express.static(path.join(sourcePath(), 'public')))
+app.use(require(path.join(sourcePath(),'/routes/root')))
 
 app.listen(port, ()=>{
     console.log("Starting server at port", port)
