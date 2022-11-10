@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="http://fonts.cdnfonts.com/css/forum" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css">
     <title>Smit-E-Shop</title>
     <link rel="stylesheet" href="/css/style.css">
     <style>
@@ -13,8 +14,55 @@
             font-family: 'Forum', sans-serif;                                         
         }
         .cards{
-          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
+
+.stars{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.stars__star-icon{
+    stroke:#EFCE4A;
+    stroke-width: 2px;
+    fill: transparent;
+    transition: .1s all;
+}
+
+.stars__star{
+    width: 5%;
+    height: 5%;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.stars__checkbox{
+    top: -9999px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.stars__star:hover > .stars__star-icon{
+    fill: #EFCE4A;
+}
+
+.stars__star:hover ~ .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+
+.stars__checkbox:checked + .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+
+.stars__checkbox:checked ~ .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+        
     </style>
     <script>
         var myCarousel = document.querySelector('#myCarousel')
@@ -36,41 +84,68 @@ var carousel = new bootstrap.Carousel(myCarousel, {
           </div>
           <ul class="menu-items">
             <li><a href="/">Home</a></li>
-            <li><a href="/showShop">Shops</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="showShop">Shops</a></li>
+            <li><a href="about">About</a></li>
             <button><a href="#">Contact</a></button>
           </ul>
           <h1 class="logo">SMIT-E-SHOP</h1>
         </div>
     </nav>
-   
-    <div class="container-fluid shadow">
-      <div class="row">
-        <div class="col-md-12 bg-secondary p-3">
-          <h1 class="text-center text-capitalize text-dark">Shop Name</h1>
-          <p class="text-center text-light">Shop Address, City (Pin Code)</p>
-          <p class="text-center text-dark"><b> Owner : , Contact : </b></p>
-        </div>
-      </div>
-    </div>
-
-   
-    <div class="container mt-5 text-center">
-      <div class="row justify-content-center m-3 p-3">
-        <div class="col-md-4 shadow m-3 p-5">
-          <h1>Rent</h1>
-          <hr>
-          <p>Explore the roducts available for rent.</p>
-          <a href="rent"><button class="btn btn-primary" style="width:80%;">Explore</button></a>
-        </div>
-        <div class="col-md-4 shadow m-3 p-5">
-          <h1>Buy</h1>
-          <hr>
-          <p>Explore the roducts available to buy.</p>
-          <a href="buy"><button class="btn btn-primary" style="width:80%;">Explore</button></a>
-        </div>
-      </div>
-    </div>
     
+            <div class="container text-center">
+                <div class="row mt-5  text-light justify-content-center aligh-item-center">
+
+                    
+                    <div class="col-md-10 bg-dark p-4 cards m-2" style="border-radius: 10px;">
+                        <p class="display-6 text-capitalize text-primary">shop name</p>
+                        <p>address , city</p>
+                        <!-- These are for the stars that we are showing on the card for rating -->
+                        <div class="stars">
+                            <input class="stars__checkbox" type="radio" id="first-star" name="star">
+                            <label class="stars__star" for="first-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                            <input class="stars__checkbox" type="radio" id="second-star" name="star">
+                            <label class="stars__star" for="second-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                            <input class="stars__checkbox" type="radio" id="third-star" name="star">
+                            <label class="stars__star" for="third-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                            <input class="stars__checkbox" type="radio" id="fourth-star" name="star">
+                            <label class="stars__star" for="fourth-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                            <input class="stars__checkbox" type="radio" id="fifth-star" name="star">
+                            <label class="stars__star" for="fifth-star">
+                                <svg class="stars__star-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 53.867 53.867" style="enable-background:new 0 0 53.867 53.867;" xml:space="preserve">
+                                    <polygon points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+                                        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/>
+                                </svg>
+                            </label>
+                        </div>
+                        <a href="/particularShop/<%= shop._id %>">visit shop</a>
+                    </div>  
+                </div>
+            </div>
+  
 </body>
 </html>
