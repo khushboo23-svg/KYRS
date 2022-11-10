@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="http://fonts.cdnfonts.com/css/forum" rel="stylesheet">
     <title>Smit-E-Shop</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .font{
             font-family: 'Forum', sans-serif;                                         
@@ -26,7 +26,7 @@ var carousel = new bootstrap.Carousel(myCarousel, {
 
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar shadow">
         <div class="navbar-container container">
           <input type="checkbox" name="" id="" />
           <div class="hamburger-lines">
@@ -44,45 +44,33 @@ var carousel = new bootstrap.Carousel(myCarousel, {
         </div>
     </nav>
    
-    <div class="container-fluid">
+    <div class="container-fluid shadow">
       <div class="row">
-        <div class="col-md-12 bg-secondary p-5">
-          <h1 class="text-center text-capitalize"><%-shops.shopname%></h1>
-          <p class="text-center text-light"><%-shops.address%> , <%-shops.city%> (<%-shops.pin%>)</p>
-          <p class="text-center text-dark"><b> Owner : <%-shops.owner%> , Contact : <%-shops.contact%></b></p>
+        <div class="col-md-12 bg-secondary p-3">
+          <h1 class="text-center text-capitalize text-dark">Shop Name</h1>
+          <p class="text-center text-light">Shop Address, City (Pin Code)</p>
+          <p class="text-center text-dark"><b> Owner : , Contact : </b></p>
         </div>
       </div>
     </div>
-   
-    <div class="container text-light">
-      <h2 class="text-center text-dark mt-2">Browse items</h2>
-      <div class="row m-1 p-4">
-        <div class="col-md-3 bg-dark p-4 text-light m-3 text-center cards">
-          <img src="images/shop.png" alt="" style="height: 100px; width: 100px;"> <br> <br>
-          <p class="text-center">Price: 100</p>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Buy</button></a><br>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Rent</button></a><br>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Add to cart</button></a>
-        </div>
-        <div class="col-md-3 bg-dark p-4 text-light m-3 text-center cards">
-          <img src="images/shop.png" alt="" style="height: 100px; width: 100px;"> <br> <br>
-          <p class="text-center">Price: 100</p>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Buy</button></a><br>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Rent</button></a><br>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Add to cart</button></a>
-        </div>
-        <div class="col-md-3 bg-dark p-4 text-light m-3 text-center cards">
-          <img src="images/shop.png" alt="" style="height: 100px; width: 100px;"> <br> <br>
-          <p class="text-center">Price: 100</p>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Buy</button></a><br>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Rent</button></a><br>
-          <a href="addShop.html"> <button class="btn btn-primary m-2" style="width:80%;">Add to cart</button></a>
-        </div>
 
+   
+    <div class="container mt-5 text-center">
+      <div class="row justify-content-center m-3 p-3">
+        <div class="col-md-4 shadow m-3 p-5">
+          <h1>Rent</h1>
+          <hr>
+          <p>Explore the products available for rent.</p>
+          <a href="rent"><button class="btn btn-primary" style="width:80%;">Explore</button></a>
+        </div>
+        <div class="col-md-4 shadow m-3 p-5">
+          <h1>Buy</h1>
+          <hr>
+          <p>Explore the products available to buy.</p>
+          <a href="buy"><button class="btn btn-primary" style="width:80%;">Explore</button></a>
+        </div>
       </div>
     </div>
-    <div class="container-mt-5 bg-dark">
-      <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus perferendis corporis ipsum esse minus fuga veritatis neque sit iure velit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere magnam nobis eos a aliquam, repudiandae saepe veritatis molestiae numquam autem dolorum fugiat fuga id incidunt, illum ducimus labore itaque tenetur facilis nemo dolor hic odio. Asperiores, deleniti dolor. Tempore, est.</p>
-    </div>
+    
 </body>
 </html>
