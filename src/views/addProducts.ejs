@@ -8,8 +8,8 @@
     <link href="http://fonts.cdnfonts.com/css/forum" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="contact.js"></script>
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Smit-E-Shop</title>
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         .font{
             font-family: 'Forum', sans-serif;                                         
@@ -62,33 +62,22 @@ var carousel = new bootstrap.Carousel(myCarousel, {
     <p class="display-6 text-capitalize m-3 text-center text-primary">Enter the details of product here</p>
 
     <!-- form -->
-    
     <div class="container mt-2 bg-dark cards p-5 text-light text-center mb-5">
         <div class="row ps-lg-5 ps-sm-2 pe-lg-5 pe-sm-2">
+            
                 <div class="col-md-6 p-3">
-                    <input class="inp bg-dark text-light p-3" style="width: 100%;" type="text" placeholder="Enter product name"/>
-                    <input class="inp bg-dark text-light p-3" style="width: 100%;" type="text" placeholder="Enter product quantity"/>
-                    <input class="inp bg-dark text-light p-3" style="width: 100%;" type="text" placeholder="Enter product price"/>
-                    <label for="formFileMultiple" class="form-label text-left mt-5">Upload product image/images</label>
-
-                    <div class="mb-3">
-                        <input class="form-control" type="file" id="formFileMultiple" multiple>
-                    </div>
-                    <a href="addProducts.html"><button class="btn btn-secondary mt-5" style="width:30%;border-radius:20px;">Upload</button></a>
+                    <form action="#" method="POST">
+                        <input class="inp bg-dark text-light p-3" style="width: 100%;" type="text" placeholder="Enter product name"/>
+                        <input class="inp bg-dark text-light p-3" style="width: 100%;" type="text" placeholder="Enter product quantity"/>
+                        <input class="inp bg-dark text-light p-3" style="width: 100%;" type="text" placeholder="Enter product price"/>
+                        <a href="addProducts"><button class="btn btn-secondary mt-5" style="width:30%;border-radius:20px;" type="submit">Upload</button></a>
+                    </form>
                 </div> 
+            
                 <div class="col-md-6">
                     <img src="images/product.png" alt="" srcset="" style="width:80%;height:100%;">
                 </div>
                 <br>
-        </div>
-    </div>
-
-
-    <div id="footer" class=" bg-dark text-light p-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" style="font-size: 15px;">@copyright smiteshop.com</div>
-            </div>
         </div>
     </div>
 </body>
