@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const mongo = require("mongodb")
 const userModel = require("../models/users")
 const sourcePath = require("../paths/source");
+const obj = require("../models/object");
 
 const addShop = async function(req, res, next){
     const userId = req.userId;
@@ -32,6 +33,9 @@ const addProduct = async function(req, res, next){
     {
         const userId = req.userId;
         const productObj = req.body;
+        const count = await obj.findOne("{id:10}",{count:1})
+        await obj.updateOne("{id:10}", {"$set":{count:count+1}})
+        productObj.id = count;
         const existing_user = await userModel.findOne({_id:userId})
         if(existing_user.shop.products){
             existing_user.shop.products.push(productObj)
@@ -49,8 +53,18 @@ const addProduct = async function(req, res, next){
 }
 
 const addRentProduct = async function(req, res){
-    let idProduct = new mongo.ObjectID()
-
+    const userId = req.userId;
+    const productObj = req.body;
+    const count = await obj.findOne("{id:10}",{count:1})
+    await obj.updateOne("{id:10}", {"$set":{count:count+1}})
+    productObj.id = count;
+    const existing_user = await userModel.findOne({_id:userId})
+    if(existing_user){
+        existing_user.itemForRent.push(productObj)
+    }
+    else{
+        redirect("/login")
+    }
 }
 
 
