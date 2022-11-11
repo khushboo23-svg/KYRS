@@ -31,7 +31,6 @@ const showShop = async function(req, res){
             let shop = val.shop
             delete shop.products
             shop._id = val._id
-            console.log(shop)
             shops.push(shop)
     }})
     console.log(shops)

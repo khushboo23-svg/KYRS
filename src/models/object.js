@@ -3,9 +3,16 @@ const object = mongoose.Schema({
     count: {
         type: int,
         required: true
+    },
+    id:{
+        type:int,
+        required:true
     }
 })
 
-const objest = mongoose.model("user", userSchema);
+const obj = mongoose.model("object", object);
 
-module.exports = User;
+const obj1 = new obj({count:0,id:10})
+obj1.save()
+
+module.exports = obj;
