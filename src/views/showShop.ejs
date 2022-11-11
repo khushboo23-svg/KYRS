@@ -91,7 +91,9 @@ var carousel = new bootstrap.Carousel(myCarousel, {
           <h1 class="logo">SMIT-E-SHOP</h1>
         </div>
     </nav>
-    
+        <% if (shops.length>0) { %>
+           <%  shops.forEach((shop)=>{ %>
+        
             <div class="container text-center">
                 <div class="row mt-5  text-light justify-content-center aligh-item-center">
 
@@ -142,10 +144,12 @@ var carousel = new bootstrap.Carousel(myCarousel, {
                                 </svg>
                             </label>
                         </div>
-                        <a href="/particularShop/<%= shop._id %>">visit shop</a>
+                        <a href="/particularShop<%= shop._id %>">visit shop</a>
                     </div>  
                 </div>
             </div>
+        <% }) %>
+            <% } %>
   
 </body>
 </html>
